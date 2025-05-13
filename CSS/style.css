@@ -1,0 +1,394 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  overflow-x: hidden;
+}
+
+.image {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+.logo {
+  width: 90px;
+  height: 80px;
+}
+
+/* Fuente Cinzel para el título */
+.Titulo {
+  font-family: 'Cinzel', serif;
+  font-size: 36px;
+  margin-bottom: 20px;
+  text-align: center;
+  color: white;
+}
+
+/* Contenedor principal */
+.contenedor-cajas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+/* Cada fila de caja + imagen */
+.caja-imagen {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start; /* Alinear al inicio para mejor control */
+  width: 48%;
+  margin-bottom: 30px;
+}
+
+/* Estilo para las cajas con efecto vidrio */
+.caja {
+  background: rgba(8, 12, 68, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(6px);
+  border-radius: 12px;
+  padding: 20px;
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+  width: 60%;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.caja:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(8, 163, 252, 0.42);
+  background: rgba(8, 12, 68, 0.7);
+}
+
+.caja h3 {
+  font-family: 'Cinzel', serif;
+  margin-bottom: 10px;
+  font-size: 22px;
+  color: #ffffff;
+  margin-top: 0;
+}
+
+.caja p {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #e0e0e0;
+}
+
+/* Estilo para la imagen */
+.imagen-caja {
+  width: 35%;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
+  object-fit: cover; /* Asegurar que la imagen mantenga sus proporciones */
+}
+
+.imagen-caja:hover {
+  transform: scale(1.03);
+}
+
+/* Alternar la posición de la imagen en desktop */
+.caja-imagen:nth-child(even) {
+  flex-direction: row-reverse;
+}
+
+.caja-imagen:nth-child(odd) {
+  flex-direction: row;
+}
+
+/* Responsive para móviles */
+@media (max-width: 768px) {
+  .contenedor-cajas {
+    gap: 20px;
+    padding: 15px;
+  }
+  
+  .caja-imagen {
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 40px; /* Más espacio entre secciones */
+  }
+
+  .caja {
+    width: 100%;
+    backdrop-filter: blur(4px);
+    margin-bottom: 15px; /* Espacio entre texto e imagen */
+  }
+
+  .imagen-caja {
+    width: 100%;
+    max-height: 250px; /* Altura máxima para imágenes */
+    margin-top: 0; /* Eliminamos el margen superior anterior */
+    order: 1; /* Posicionamos la imagen después del texto (que tiene order: 0 por defecto) */
+  }
+  
+  /* Ajustes tipográficos para móviles */
+  .Titulo {
+    font-size: 28px;
+    margin-bottom: 15px;
+  }
+  
+  .caja h3 {
+    font-size: 20px;
+  }
+  
+  .caja p {
+    font-size: 14px;
+  }
+}
+
+/* Ajustes adicionales para pantallas muy pequeñas */
+@media (max-width: 480px) {
+  .caja {
+    padding: 15px;
+  }
+  
+  .imagen-caja {
+    max-height: 200px;
+  }
+}
+
+
+
+
+
+
+
+
+
+header {
+  position: fixed;
+  top: 0;
+  z-index: 100;
+  width: 100%;
+  background-color: #080c44f5;
+}
+
+header .contenedor {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1280px;
+  height: 85px;
+  margin: 0 auto;
+  padding: 0 30px;
+}
+
+header .menu-opciones {
+  transition: height 0.6s ease;
+  background-color: transparent;
+}
+
+header .menu-opciones ul {
+  display: flex;
+  flex-direction: row;
+  padding-left: 0;
+  margin: 0;
+}
+
+header .menu-opciones li {
+  list-style: none;
+  margin: 15px;
+}
+
+header .menu-opciones a {
+  color: #c4b4b4;
+  text-decoration: none;
+  padding: 10px 20px;
+  transition: color 0.3s;
+}
+
+header .menu-opciones a:hover {
+  color: white;
+}
+
+header .controles-usuario {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+header .controles-usuario ion-icon {
+  font-size: 25px;
+  cursor: pointer;
+  color: #c4b4b4;
+}
+
+header .controles-usuario ion-icon:hover {
+  color: white;
+}
+
+#btn-menu {
+  display: none;
+}
+.remontadasHistoricas {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(1rem, 5.33vw, 2rem); /* Reduced font size by one-third */
+  line-height: 1.1;
+  color: white;
+  padding: 0 20px;
+}
+
+.contenedor-central {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: auto;
+  padding-top: 200px;
+  text-align: center;
+}
+
+.titulo {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(2.5rem, 8vw, 7rem);
+  line-height: 1.1;
+  color: white;
+  padding: 0 20px;
+}
+
+.menu-escudos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 30px;
+  margin: 90px 20px;
+}
+
+.menu-escudos a {
+  width: 150px;
+  height: 140px;
+  transition: transform 0.3s ease;
+}
+
+.menu-escudos a:hover {
+  transform: scale(1.1);
+}
+
+.menu-escudos img {
+  width: 100%;
+  height: auto;
+  max-height: 110px;
+  object-fit: contain;
+}
+
+.botones {
+  display: flex; /* Usa flexbox para organizar los elementos */
+  justify-content: center; /* Centra los elementos horizontalmente */
+  align-items: center; /* Centra los elementos verticalmente */
+  flex-wrap: wrap; /* Permite que los elementos se envuelvan */
+  gap: 20px; /* Espaciado entre los elementos */
+  margin-top: 60px; /* Margen superior */
+  padding: 0 20px; /* Espaciado interno horizontal */
+  
+}
+button {
+  height: 50px; /* Altura del botón */
+  margin: 5px; /* Margen alrededor del botón */
+  width: 280px; /* Ancho del botón */
+  background: #080c44; /* Color de fondo */
+  justify-content: center; /* Centra el contenido horizontalmente */
+  cursor: pointer; /* Cambia el cursor al pasar el mouse */
+  align-items: center; /* Centra el contenido verticalmente */
+  font-family: 'Montserrat', sans-serif; /* Fuente del botón */
+  border: solid #015ee0 1px; /* Borde del botón */
+  font-size: 16px; /* Tamaño de la fuente */
+  color: rgb(255, 255, 255); /* Color del texto */
+  transition: 500ms; /* Transición suave */
+  border-radius: 5px; /* Bordes redondeados */
+  background: linear-gradient(145deg, #080b48, #080c44); /* Gradiente de fondo */
+  box-shadow: -1px -5px 15px #41465b, 5px 5px 15px #41465b, inset 5px 5px 10px #212121, inset -5px -5px 10px #212121; /* Sombra del botón */
+}
+
+button:hover {
+  box-shadow: 1px 1px 13px #20232e, -1px -1px 13px #545b78; /* Cambia la sombra al pasar el mouse */
+  color: #d6d6d6; /* Cambia el color del texto */
+  transition: 500ms; /* Transición suave */
+}
+
+button:active {
+  box-shadow: 1px 1px 13px #20232e, -1px -1px 33px #545b78; /* Cambia la sombra al hacer clic */
+  color: #d6d6d6; /* Cambia el color del texto */
+  transition: 100ms; /* Transición rápida */
+}
+
+/* Responsive */
+@media (max-width: 865px) {
+  header #btn-menu {
+    display: block;
+  }
+
+  header .menu-opciones {
+    height: 0;
+    overflow: hidden;
+    position: absolute;
+    top: 85px;
+    left: 0;
+    width: 100%;
+    background-color: rgb(10, 19, 79);
+    transition: height 0.4s ease;
+    z-index: 99;
+  }
+
+  header .menu-opciones.mostrar {
+    height: 240px;
+  }
+
+  header .menu-opciones ul {
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+  }
+
+  header .menu-opciones li {
+    margin: 10px 0;
+  }
+
+  .logo {
+    width: 70px;
+    height: 60px;
+  }
+
+  .menu-escudos a {
+    width: 100px;
+    height: auto;
+  }
+
+  .menu-escudos img {
+    max-height: 80px;
+  }
+}
+
+@media (max-width: 480px) {
+  .titulo {
+    font-size: clamp(2rem, 8vw, 3rem);
+  }
+
+  .botones {
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 40px;
+  }
+
+  button {
+    width: 100%;
+    max-width: 90vw;
+  }
+}
